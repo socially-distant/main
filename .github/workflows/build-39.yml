@@ -1,4 +1,4 @@
-name: ublue main 39
+name: main 39
 on:
   pull_request:
   merge_group:

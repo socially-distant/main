@@ -1,4 +1,4 @@
-name: build-ublue
+name: build-main
 on:
   workflow_call:
     inputs:
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_ublue:
+  build_main:
     name: main
     runs-on: ubuntu-24.04
     permissions:
@@ -275,10 +275,10 @@ jobs:
     name: Check all ${{ inputs.fedora_version }} builds successful
     if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
-    needs: [build_ublue]
+    needs: [build_main]
     steps:
       - name: Exit on failure
-        if: ${{ needs.build_ublue.result == 'failure' }}
+        if: ${{ needs.build_main.result == 'failure' }}
         shell: bash
         run: exit 1
       - name: Exit
