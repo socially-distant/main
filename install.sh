@@ -40,10 +40,8 @@ sed -i '0,/enabled=1/{s/enabled=1/enabled=1\npriority=90/}' /etc/yum.repos.d/neg
 rpm-ostree override replace \
   --experimental \
   --from repo='fedora-multimedia' \
-    libheif \
     libva \
     libva-intel-media-driver \
-    libvdpau \
     mesa-dri-drivers \
     mesa-filesystem \
     mesa-libEGL \
@@ -54,11 +52,25 @@ rpm-ostree override replace \
     mesa-va-drivers \
     mesa-vulkan-drivers
 
+if [[ "$FEDORA_MAJOR_VERSION" -ne "41" ]]; then
+    rpm-ostree override replace \
+        --experimental \
+        --from repo='fedora-multimedia' \
+        libheif \
+        libvdpau
+fi
+
 # run common packages script
 /ctx/packages.sh
 
 ## install packages direct from github
 /ctx/github-release-install.sh sigstore/cosign x86_64
+
+# use CoreOS' generator for emergency/rescue boot
+# see detail: https://github.com/ublue-os/main/issues/653
+CSFG=/usr/lib/systemd/system-generators/coreos-sulogin-force-generator
+curl -sSLo ${CSFG} https://raw.githubusercontent.com/coreos/fedora-coreos-config/refs/heads/stable/overlay.d/05core/usr/lib/systemd/system-generators/coreos-sulogin-force-generator
+chmod +x ${CSFG}
 
 if [[ "${KERNEL_VERSION}" == "${QUALIFIED_KERNEL}" ]]; then
     /ctx/initramfs.sh
