@@ -95,6 +95,10 @@
                 "libswscale-free",
                 "default-fonts-cjk-sans"
             ],
+            "silverblue": [
+                "totem-video-thumbnailer",
+                "gnome-software-rpm-ostree"
+            ],
             "kinoite": [
                 "ffmpegthumbnailer",
                 "plasma-discover-rpm-ostree"
@@ -133,7 +137,10 @@
     "41": {
         "include": {
             "all": [],
-            "kinoite": []
+            "kinoite": [
+                "kf6-kimageformats",
+                "qt6-qtimageformats"
+            ]
         },
         "exclude": {
             "all": []

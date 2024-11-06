@@ -60,6 +60,16 @@ if [[ "$FEDORA_MAJOR_VERSION" -ne "41" ]]; then
         libvdpau
 fi
 
+# Disable DKMS support in gnome-software
+if [[ "$FEDORA_MAJOR_VERSION" -ge "41" && "$IMAGE_NAME" == "silverblue" ]]; then
+    rpm-ostree override remove \
+        gnome-software-rpm-ostree
+    rpm-ostree override replace \
+        --experimental \
+        --from repo=copr:copr.fedorainfracloud.org:ublue-os:staging \
+        gnome-software
+fi
+
 # run common packages script
 /ctx/packages.sh
 
