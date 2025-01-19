@@ -4,7 +4,7 @@ ARG SOURCE_ORG="${SOURCE_ORG:-fedora-ostree-desktops}"
 ARG BASE_IMAGE="quay.io/${SOURCE_ORG}/${SOURCE_IMAGE}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
 ARG KERNEL_VERSION="${KERNEL_VERSION:-6.9.7-200.fc40.x86_64}"
-ARG IMAGE_REGISTRY=ghcr.io/apoordev
+ARG IMAGE_REGISTRY=ghcr.io/socially-distant
 
 FROM ghcr.io/ublue-os/config:latest AS config
 FROM ghcr.io/ublue-os/akmods:main-${FEDORA_MAJOR_VERSION} AS akmods

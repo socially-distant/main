@@ -81,6 +81,6 @@ ${container_mgr} run --rm --privileged  \
     IMAGE_REPO="localhost" \
     IMAGE_TAG="${version}-${git_branch}" \
     ISO_NAME="build/${tag}-${version}-${git_branch}.iso" \
-    SECURE_BOOT_KEY_URL='https://github.com/apoordev/kernel-cache/raw/main/certs/public_key.der' \
+    SECURE_BOOT_KEY_URL='https://github.com/socially-distant/kernel-cache/raw/main/certs/public_key.der' \
     VARIANT="${variant}" \
     VERSION="${version}"
