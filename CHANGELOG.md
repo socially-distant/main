@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.3.1](https://github.com/socially-distant/main/compare/v2.3.0...v2.3.1) (2025-01-21)
+
+
+### Bug Fixes
+
+* link to correct repo ([e43f76b](https://github.com/socially-distant/main/commit/e43f76b55e6d46cc7bab5fa6a624a701682eb85e))
+* suffix the Fedora 41 source image names with -atomic for non-sil… ([#702](https://github.com/socially-distant/main/issues/702)) ([a70140c](https://github.com/socially-distant/main/commit/a70140c66d31fe5072275e6cd940c12558f70ec8))
+* update repo ([302d43a](https://github.com/socially-distant/main/commit/302d43a954abca1e9f88849574591f985dbfdbde))
+
 ## [2.3.0](https://github.com/apoordev/main/compare/v2.2.0...v2.3.0) (2024-12-16)
 
 
